@@ -25,6 +25,15 @@ access_key_3
 
 ```yaml
 apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: proxy-keys
+  namespace: proxy-system
+data:
+  keys: MDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAw
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: proxy-service
@@ -34,9 +43,9 @@ metadata:
 spec:
   ports:
   - name: proxy-server
-    port: 5000
+    port: 8000
     protocol: TCP
-    targetPort: 5000
+    targetPort: 8000
   selector:
     app: proxy
 ---
@@ -88,6 +97,7 @@ spec:
         volumeMounts:
         - name: proxy-keys-storage
           mountPath: /app/.keys
+          subPath: keys
           readOnly: true
       volumes:
       - name: proxy-keys-storage
