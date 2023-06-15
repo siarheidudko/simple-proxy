@@ -1,0 +1,27 @@
+{
+  "name": "simple-proxy",
+  "version": "0.0.1",
+  "description": "A simple proxy server with access token verification and the ability to proxy unencrypted traffic. You probably shouldn't use this in production, but you can use it on the internal network or behind nginx with ssl.",
+  "main": "./lib/proxy.js",
+  "scripts": {
+    "test": "node ./lib/proxy.js",
+    "build": "docker-compose build",
+    "start": "docker-compose up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siarheidudko/simple-proxy.git"
+  },
+  "keywords": [
+    "proxy",
+    "node",
+    "simple",
+    "tcp"
+  ],
+  "author": "Siarhei Dudko <slavianich@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siarheidudko/simple-proxy/issues"
+  },
+  "homepage": "https://github.com/siarheidudko/simple-proxy#readme"
+}
